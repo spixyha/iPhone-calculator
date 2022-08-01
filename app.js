@@ -17,12 +17,14 @@ function cleanMemory() {
 }
 
 numbers.forEach(number => number.addEventListener("click", e => {
-    if (typeOnClean) {
-        display.innerText = "";
-        typeOnClean = false;
-        display.append(e.target.innerText);
-    } else {
-        display.append(e.target.innerText);
+    if (display.innerText.length < 6) {
+        if (typeOnClean) {
+            display.innerText = "";
+            typeOnClean = false;
+            display.append(e.target.innerText);
+        } else {
+            display.append(e.target.innerText);
+        }
     }
 }))
 
@@ -56,7 +58,7 @@ equal.addEventListener("click", () => {
         display.innerText = "";
         typeOnClean = true;
         operations.forEach(operation => operation.classList.remove("pressed"));
-        display.append(result);
+        result.toString().length > 7 ? display.append(Number(result.toString().slice(0, 7))) : display.append(result);
     }
 })
 
