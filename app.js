@@ -41,18 +41,19 @@ equal.addEventListener("click", () => {
     if (valueMemory.length >= 1) {
         let result;
         valueMemory.push(Number(display.innerText))
+        const [a, b] = valueMemory;
         switch (operationMemory[0]) {
             case "+":
-                result = valueMemory[0] + valueMemory[1];
+                result = a + b;
                 break;
             case "-":
-                result = valueMemory[0] - valueMemory[1];
+                result = a - b;
                 break;
             case "×":
-                result = valueMemory[0] * valueMemory[1];
+                result = a * b;
                 break;
             case "÷":
-                result = valueMemory[0] / valueMemory[1];
+                result = a / b;
         }
         cleanMemory()
         display.innerText = "";
